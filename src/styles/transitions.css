@@ -1,0 +1,50 @@
+.award-image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  transition: opacity 2000ms;
+}
+  
+.award-image.preEnter,
+.award-image.entered,
+.award-image.exiting {
+  opacity: 1;
+}
+
+.award-image.exited {
+  opacity: 0;
+}
+
+.award-mask{
+  height: 100%;
+  width: 100%;
+  mask-mode: alpha;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+}
+
+.award-container{
+  position: relative;
+}
+
+
+.award-player {
+  position: absolute;
+  pointer-events: none;
+  top:-100%;
+  left:-100%;
+  width: 300%;
+  height: 300%;
+}
+
+.award-player.preEnter,
+
+.award-player.exiting {
+  opacity: 1;
+}
+
+.award-player.entered,
+.award-player.exited {
+  opacity: 0;
+}

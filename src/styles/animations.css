@@ -1,0 +1,18 @@
+.placeholder {
+  background-color: #eee;
+  animation: placeholder 2s infinite alternate;
+}
+
+@keyframes placeholder {
+  0% {
+    background-color: #eee;
+  }
+  
+  50% {
+    background-color: #ddd;
+  }
+  
+  100% {
+    background-color: #eee;
+  }
+}
