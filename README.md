@@ -1,7 +1,7 @@
 ![npm](https://img.shields.io/npm/v/react-award)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-award?color=green)
 
-# React AWard
+# React Award
 
 This React component displays a solid color mask with the silhouette of an image, and when triggered, it performs a fade-in effect to reveal the image. Additionally, the component also plays a Lottie animation.
 
