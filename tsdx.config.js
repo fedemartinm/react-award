@@ -3,7 +3,7 @@ const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 
 module.exports = {
-  rollup(config, options) {
+  rollup(config) {
     config.plugins.push(
       postcss({
         plugins: [
@@ -13,8 +13,7 @@ module.exports = {
           }),
         ],
         inject: false,
-        // only write out CSS for the first bundle (avoids pointless extra files):
-        extract: !!options.writeMeta,
+        extract: 'react-award.css',
       })
     );
     return config;
