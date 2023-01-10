@@ -35,7 +35,21 @@
     "trailingComma": "es5"
   },
   "name": "react-award",
+  "description": "React component for rewarding users",
   "author": "Fede Martin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fedemartinm/react-award.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fedemartinm/react-award/issues"
+  },
+  "keywords": [
+    "react",
+    "gamification",
+    "awards",
+    "lottie"
+  ],
   "module": "dist/react-award.esm.js",
   "size-limit": [
     {
