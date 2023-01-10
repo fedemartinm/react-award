@@ -36,9 +36,13 @@ interface AwardProps {
    */
   showPlaceholder?: boolean;
   /**
+   * Animation speed
+   */
+  speed?: any;
+  /**
    * Container styles
    */
-  style?: any;
+  style?: CSSProperties;
   /**
    * Image styles
    */
@@ -93,6 +97,7 @@ export const Award: React.FC<AwardProps> = props => {
 
       <Player
         play={play}
+        speed={props.speed}
         style={props.playerStyle}
         animation={props.animation}
         onLoad={() => setLoaded(true)}

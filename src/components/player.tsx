@@ -4,6 +4,7 @@ import { Player as LottiePlayer } from '@lottiefiles/react-lottie-player';
 interface PlayerProps {
   play: boolean;
   animation: string;
+  speed?: number;
   className?: string;
   style?: CSSProperties;
   onLoad: () => any;
@@ -37,6 +38,7 @@ export const Player = (props: PlayerProps) => {
       ref={playerRef}
       onEvent={onLottieEvent}
       src={props.animation}
+      speed={props.speed}
     />
   );
 };
