@@ -27,6 +27,8 @@ or
 npm install react-award --save
 ```
 
+Please note that `@lottiefiles/react-lottie-player` is a peer dependency and must be installed in order to use this package.
+
 ### Basic Usage
 
 ```javascript
