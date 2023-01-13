@@ -90,7 +90,10 @@ export const Award: React.FC<AwardProps> = props => {
       >
         <img
           src={props.image}
-          style={props.imageStyle}
+          style={{
+            transitionDuration: `${props.duration}ms`,
+            ...(props.imageStyle || {}),
+          }}
           className={`award-image ${transition.status}`}
         />
       </Mask>
