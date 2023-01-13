@@ -28,6 +28,10 @@ interface AwardProps {
    */
   playOnHover?: boolean;
   /**
+   * Use this property to play only specific segments of the animation
+   */
+  segments?: [number, number];
+  /**
    * To change the mask color.
    */
   backgroundColor?: string;
@@ -105,6 +109,7 @@ export const Award: React.FC<AwardProps> = props => {
       <Player
         play={play}
         speed={props.speed}
+        segments={props.segments}
         style={props.playerStyle}
         animation={props.animation}
         onLoad={() => setLoaded(true)}
