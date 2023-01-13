@@ -55,6 +55,10 @@ interface AwardProps {
    * Player styles
    */
   playerStyle?: CSSProperties;
+  /**
+   * Called when the lottie animation has finished
+   */
+  onComplete?: () => void;
 }
 
 /**
@@ -77,7 +81,7 @@ export const Award: React.FC<AwardProps> = props => {
   const play = loaded ? (props.playOnHover && hovered) || !!props.play : false;
 
   useEffect(() => {
-    play && showImage(true);
+    showImage(play);
   }, [play]);
 
   return (
@@ -104,6 +108,7 @@ export const Award: React.FC<AwardProps> = props => {
         style={props.playerStyle}
         animation={props.animation}
         onLoad={() => setLoaded(true)}
+        onComplete={props.onComplete}
         className={`award-player ${transition.status}`}
       />
     </div>

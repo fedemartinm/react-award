@@ -7,7 +7,8 @@ interface PlayerProps {
   speed?: number;
   className?: string;
   style?: CSSProperties;
-  onLoad: () => any;
+  onLoad?: () => any;
+  onComplete?: () => any;
 }
 
 /**
@@ -15,19 +16,26 @@ interface PlayerProps {
  * and allows you to play or stop the animation in a declarative way.
  */
 export const Player = (props: PlayerProps) => {
-  const { play, className, style, onLoad } = props;
+  const { play, className, style, onLoad, onComplete } = props;
 
   const playerRef = useRef<LottiePlayer | null>(null);
 
   useEffect(() => {
     if (play) {
+      playerRef.current?.stop();
       playerRef.current?.play();
     }
   }, [play]);
 
   const onLottieEvent = (event: any) => {
-    if (event === 'load') {
-      onLoad();
+    switch (event) {
+      case 'complete':
+        onComplete && onComplete();
+        break;
+      case 'load':
+        onLoad && onLoad();
+        break;
+      default:
     }
   };
 
