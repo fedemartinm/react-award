@@ -39,6 +39,7 @@ export const Player = (props: PlayerProps) => {
       onEvent={onLottieEvent}
       src={props.animation}
       speed={props.speed}
+      keepLastFrame={true}
     />
   );
 };
