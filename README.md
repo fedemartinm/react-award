@@ -103,10 +103,12 @@ You can check the example within the repository to see how the package can be ut
 | backgroundColor | boolean | To change the mask color | | 
 | showPlaceholder | boolean | Set this property to 'true' to show a placeholder effect when the animation is not ready to be displayed | | 
 | speed | number | Animation speed | |
+| segments | [ number, number ] | Use this property to play only specific segments of the animation | |
 | style | CSSProperties | Container styles | | 
 | imageStyle | CSSProperties | Image styles | | 
 | maskStyle | CSSProperties | Mask styles | | 
 | playerStyle | CSSProperties | Player styles | | 
+| onComplete | () => void | Called when the lottie animation has finished | |
 
 
 
