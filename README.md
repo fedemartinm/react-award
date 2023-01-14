@@ -3,7 +3,9 @@
 
 # React Award
 
-This React component displays a solid color mask with the silhouette of an image, and when triggered, it performs a fade-in effect to reveal the image. Additionally, the component also plays a Lottie animation.
+This React component displays a solid color mask with the silhouette of an image, and when triggered, it performs a fade-in effect to reveal the image. Additionally, the component also plays a Lottie animation. 
+
+Alternatively, a component can be passed as a child instead of an image, transition effects and lottie animation will be applied but the silhouette will not be displayed.
 
 The idea behind this package is to add gamification to the applications we write by rewarding the user for achieving different achievements. I welcome any suggestions for including other gamification components in this library, feel free to contribute.
 

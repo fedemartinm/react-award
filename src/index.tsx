@@ -1,6 +1,7 @@
-import React, { CSSProperties, useEffect, useState } from 'react';
-import { Mask, Player } from './components';
+import React, { CSSProperties, useEffect, useMemo, useState } from 'react';
 import { useTransition } from 'react-transition-state';
+import { Mask, Image, Player } from './components';
+import { withAwardProperties } from './hocs';
 import { useHover } from './hooks/useHover';
 
 import './styles/transitions.css';
@@ -63,6 +64,10 @@ interface AwardProps {
    * Called when the lottie animation has finished
    */
   onComplete?: () => void;
+  /**
+   * Children. Use this if you want to replace the image
+   */
+  children: React.ReactNode;
 }
 
 /**
@@ -88,6 +93,10 @@ export const Award: React.FC<AwardProps> = props => {
     showImage(play);
   }, [play]);
 
+  const CustomChild = useMemo(() => {
+    return withAwardProperties(props.children);
+  }, [props.children]);
+
   return (
     <div ref={ref} className="award-container" style={props.style}>
       <Mask
@@ -96,16 +105,17 @@ export const Award: React.FC<AwardProps> = props => {
         backgroundColor={props.backgroundColor}
         className={`award-mask ${showPlaceholder && 'placeholder'}`}
       >
-        <img
-          src={props.image}
-          style={{
-            transitionDuration: `${props.duration}ms`,
-            ...(props.imageStyle || {}),
-          }}
+        <Image
+          image={props.image}
+          style={props.imageStyle}
+          duration={props.duration}
           className={`award-image ${transition.status}`}
         />
       </Mask>
-
+      <CustomChild
+        duration={props.duration}
+        className={`award-image ${transition.status}`}
+      />
       <Player
         play={play}
         speed={props.speed}
