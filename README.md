@@ -11,11 +11,12 @@ The idea behind this package is to add gamification to the applications we write
 
 
 ### Examples
-
-Basic       |  Customized    |  Using placeholder
-:-------------------------:|:-------------------------:|:-------------------------:
- <img src="https://user-images.githubusercontent.com/33937355/211485759-8ff43341-8efd-4b15-bb04-ab94842dba51.gif" data-canonical-src="https://user-images.githubusercontent.com/33937355/211485759-8ff43341-8efd-4b15-bb04-ab94842dba51.gif" width="200" height="200" /> |  <img src="https://user-images.githubusercontent.com/33937355/211487836-21ee4877-9aa4-4750-afe5-e5d890186e05.gif" data-canonical-src="https://user-images.githubusercontent.com/33937355/211487836-21ee4877-9aa4-4750-afe5-e5d890186e05.gif" width="200" height="200" /> | <img src="https://user-images.githubusercontent.com/33937355/211488215-6f432bde-373b-40b7-bd41-d810e91fd391.gif" data-canonical-src="https://user-images.githubusercontent.com/33937355/211488215-6f432bde-373b-40b7-bd41-d810e91fd391.gif" width="200" height="200" />
-
+ 
+ Basic       |   Custom component   
+:-------------------------:|:-------------------------:
+ <img src="https://user-images.githubusercontent.com/33937355/211485759-8ff43341-8efd-4b15-bb04-ab94842dba51.gif" data-canonical-src="https://user-images.githubusercontent.com/33937355/211485759-8ff43341-8efd-4b15-bb04-ab94842dba51.gif" width="200" height="200" /> | <img src="https://user-images.githubusercontent.com/33937355/212456822-a3c1347c-1584-4cfa-ba1c-e1ba930bba57.gif" data-canonical-src="https://user-images.githubusercontent.com/33937355/212456822-a3c1347c-1584-4cfa-ba1c-e1ba930bba57.gif" width="200" height="200" />
+ Customized       |   Using placeholder  
+<img src="https://user-images.githubusercontent.com/33937355/211487836-21ee4877-9aa4-4750-afe5-e5d890186e05.gif" data-canonical-src="https://user-images.githubusercontent.com/33937355/211487836-21ee4877-9aa4-4750-afe5-e5d890186e05.gif" width="200" height="200" /> |  <img src="https://user-images.githubusercontent.com/33937355/211488215-6f432bde-373b-40b7-bd41-d810e91fd391.gif" data-canonical-src="https://user-images.githubusercontent.com/33937355/211488215-6f432bde-373b-40b7-bd41-d810e91fd391.gif" width="200" height="200" /> 
 
 ### Installation
 
