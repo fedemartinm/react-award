@@ -14,6 +14,10 @@ interface MaskProps {
 export const Mask = (props: MaskProps) => {
   const { backgroundColor, className, children, style = {} } = props;
 
+  if (!props.image) {
+    return null;
+  }
+
   return (
     <div
       className={className}
