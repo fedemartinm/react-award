@@ -20,7 +20,6 @@
     "analyze": "size-limit --why"
   },
   "peerDependencies": {
-    "@lottiefiles/react-lottie-player": "^3.5.0",
     "react": ">=16"
   },
   "husky": {
