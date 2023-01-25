@@ -1,5 +1,4 @@
 ![npm](https://img.shields.io/npm/v/react-award)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-award?color=green)
 
 # React Award
 
@@ -9,6 +8,7 @@ Alternatively, a component can be passed as a child instead of an image, transit
 
 The idea behind this package is to add gamification to the applications we write by rewarding the user for achieving different achievements. I welcome any suggestions for including other gamification components in this library, feel free to contribute.
 
+👉 The standalone use of this library (if you are not using lottie-web or any wrapper) is `291kb` for the full version and `164kb` for the light version. It is compatible with packages `lottie-react`, `@LottieFiles/lottie-react` and `react-lottie-player`, and using it together only adds a few extra kilobytes to your bundle. Check the "Compatibility and performance" section for more information.
 
 ### Examples
  
@@ -29,8 +29,6 @@ or
 ```shell
 npm install react-award --save
 ```
-
-Please note that `@lottiefiles/react-lottie-player` is a peer dependency and must be installed in order to use this package.
 
 ### Basic Usage
 
@@ -93,6 +91,25 @@ by changing the container size:
 ```
 
 You can check the example within the repository to see how the package can be utilized.
+
+### Compatibility and performance
+If you are already using lottie animations in your project, it is likely that you have installed packages `lottie-react`, `@LottieFiles/lottie-react` or `react-lottie-player`. Since those packages and react-award are based on lottie-web, you will not have any issues with the size of the application.
+
+Keep in mind the following points to reduce the size of your bundle:
+- Use the same version of lottie in react-award and in your lottie wrapper. 
+  For example:
+  ```javascript
+  import LottiePlayer from 'react-lottie-player/dist/LottiePlayerLight';
+  ...
+  // previous import works well with:
+  import { Award } from 'react-award/dist/react-award-light';
+  ```
+- Use the lightweight version of react-award if you don't have other animations
+  For example:
+  ```javascript
+  import { Award } from 'react-award/dist/react-award-light';
+  ```
+
 
 ### Props
 
