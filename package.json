@@ -1,8 +1,9 @@
 {
   "version": "1.1.0",
   "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "source": "src/react-award.tsx",
+  "main": "dist/react-award.js",
+  "typings": "dist/react-award.d.ts",
   "files": [
     "dist",
     "src"
@@ -11,11 +12,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "build": "rm -rf dist && microbundle src/react-award.tsx src/react-award-light.tsx --no-compress --format modern,cjs -o dist --jsx React.createElement",
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
@@ -49,17 +46,6 @@
     "awards",
     "lottie"
   ],
-  "module": "dist/react-award.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/react-award.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/react-award.esm.js",
-      "limit": "10 KB"
-    }
-  ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^8.1.0",
     "@types/react": "^18.0.26",
@@ -67,12 +53,12 @@
     "autoprefixer": "^10.4.13",
     "cssnano": "^5.1.14",
     "husky": "^8.0.3",
+    "microbundle": "^0.15.1",
     "postcss": "^8.4.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup-plugin-postcss": "^4.0.2",
     "size-limit": "^8.1.0",
-    "tsdx": "^0.14.1",
     "tslib": "^2.4.1",
     "typescript": "^4.9.4"
   },

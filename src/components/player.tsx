@@ -1,9 +1,10 @@
 import React, { CSSProperties, useEffect, useRef } from 'react';
-import LottieWeb, { AnimationItem } from 'lottie-web';
+import { LottiePlayer, AnimationItem } from 'lottie-web';
 
-interface PlayerProps {
+export interface PlayerProps {
+  lottie: LottiePlayer;
   play: boolean;
-  animation: string;
+  animation: any;
   segments?: [number, number];
   speed?: number;
   className?: string;
@@ -24,7 +25,7 @@ export const Player = (props: PlayerProps) => {
 
   // animation loader
   useEffect(() => {
-    animationRef.current = LottieWeb.loadAnimation({
+    animationRef.current = props.lottie.loadAnimation({
       autoplay: false,
       loop: false,
       animationData: props.animation,
