@@ -1,12 +1,5 @@
 import React, { CSSProperties, useEffect, useRef } from 'react';
-import {
-  Player as LottiePlayer,
-  IPlayerProps,
-} from '@lottiefiles/react-lottie-player';
-import { ArgumentType, NotNull } from '../types/utils';
-
-type LottieAnimation = NotNull<IPlayerProps['lottieRef']>;
-type Animation = ArgumentType<LottieAnimation>;
+import LottieWeb, { AnimationItem } from 'lottie-web';
 
 interface PlayerProps {
   play: boolean;
@@ -24,44 +17,63 @@ interface PlayerProps {
  * and allows you to play or stop the animation in a declarative way.
  */
 export const Player = (props: PlayerProps) => {
-  const { play, segments, className, style, onLoad, onComplete } = props;
+  const { animation, play, segments, className, style, speed } = props;
 
-  const lottieRef = useRef<Animation | null>(null);
+  const animationRef = useRef<AnimationItem | null>(null);
+  const containerRef = useRef<any>(null);
+
+  // animation loader
+  useEffect(() => {
+    animationRef.current = LottieWeb.loadAnimation({
+      autoplay: false,
+      loop: false,
+      animationData: props.animation,
+      renderer: 'svg',
+      container: containerRef.current,
+    });
+
+    return () => {
+      animationRef.current?.destroy();
+      animationRef.current = null;
+    };
+  }, [animation]);
+
+  // event handlers
+  useEffect(() => {
+    if (!animationRef.current) {
+      return;
+    }
+    const onLoad = () => {
+      animationRef.current?.hide();
+      animationRef.current?.stop();
+      props.onLoad?.call(null);
+    };
+    const onComplete = () => {
+      animationRef.current?.hide();
+      animationRef.current?.stop();
+      props.onComplete?.call(null);
+    };
+
+    animationRef.current.addEventListener('DOMLoaded', onLoad);
+    animationRef.current.addEventListener('complete', onComplete);
+
+    return () => {
+      animationRef.current?.removeEventListener('DOMLoaded', onLoad);
+      animationRef.current?.removeEventListener('complete', onComplete);
+    };
+  }, [props.onLoad, props.onComplete]);
 
   useEffect(() => {
     if (play) {
-      lottieRef.current?.show();
-
+      animationRef.current?.show();
+      animationRef.current?.setSpeed(speed || 1);
       if (Array.isArray(segments)) {
-        lottieRef.current?.playSegments(segments, true);
+        animationRef.current?.playSegments(segments, true);
       } else {
-        lottieRef.current?.play();
+        animationRef.current?.play();
       }
     }
-  }, [play, segments]);
+  }, [play, segments, speed]);
 
-  const onLottieEvent = (event: any) => {
-    switch (event) {
-      case 'complete':
-        lottieRef.current?.hide();
-        lottieRef.current?.stop();
-        onComplete && onComplete();
-        break;
-      case 'load':
-        onLoad && onLoad();
-        break;
-      default:
-    }
-  };
-
-  return (
-    <LottiePlayer
-      lottieRef={e => (lottieRef.current = e)}
-      className={className}
-      style={style}
-      onEvent={onLottieEvent}
-      src={props.animation}
-      speed={props.speed}
-    />
-  );
+  return <div style={style} className={className} ref={containerRef} />;
 };
